@@ -11,15 +11,24 @@ Our application, Pokemon Battlefield is for kids and adults who also like Pokemo
 This application will use the PokeApi API. Below are the documentation and specific endpoints we intend to use and the front-end pages that will use them.
 
 - Link to API documentation: [Link goes here]
-- API endpoint #1
-  - Description of endpoint
+- API endpoint #1: https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0 (GET)
+  - Description of endpoint: provides a list of up to 1302 Pokemon
+  - List of data values used by the endpoint 
+    - Being able to search by `name` 
+    - More data shown through the `url`
+- API endpoint #2: https://pokeapi.co/api/v2/pokemon/{id or name}/ (GET)
+  - Description of endpoint: accessing an individual Pokemon
   - List of data values used by the endpoint
-- API endpoint #2
-  - Description of endpoint
+    - Accessing their `id` and `type`
+    - Showing the artwork with `image`
+- API endpoint #3: https://pokeapi.co/api/v2/move/{id or name}/  (GET)
+  - Description of endpoint: using these values to decide who wins the battle 
   - List of data values used by the endpoint
-- API endpoint #3
-  - Description of endpoint
-  - List of data values used by the endpoint
+    - Accessing their `name`
+    - `pp`, how many times a move can be used 
+    - `type`, type of move 
+    - `target`, how many enemies or allies are hit
+    - `power`, how strong the move is
 
 Our API does **not** require a key.
 
