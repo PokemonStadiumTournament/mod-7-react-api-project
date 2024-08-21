@@ -76,18 +76,22 @@ To ensure that we can complete all core features of the application in 1 week, w
 - [ ] Fetching Pokemons work properly.
 - [ ] Routing to `/selection` works properly.
 - [ ] Pokemons can be rendered and filtered on the selection screen.
+
 **Day 2** Thursday
 - [ ] Routing to `/battle` works properly.
 - [ ] Selection works properly.
 - [ ] `/battle` route is rendered properly.
+
 **Day 3** (MVP due by the end of the day) Friday
 - [ ] Actions can be taken in combat.
 - [ ] Pokémon stats are updated after every turn.
 - [ ] Pokémon battle can have a winner.
+
 **Day 4** Saturday
 - [ ] Testing both selection and battle screens.
 - [ ] Presentation is copied.
 - [ ] Both partners have access to the presentation.
+
 **Day 5** Monday
 - [ ] The demo video has been uploaded to the presentation.
 - [ ] All presentation content is done.
