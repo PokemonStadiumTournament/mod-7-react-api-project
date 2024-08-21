@@ -1,14 +1,14 @@
-# [Project Name]
+# Pokemon Battlefield
 
-Created by [team member], [team member], and [team member].
+Created by Engels G. and Kelly X.C.
 
 ## 🚀 Mission statement
 
-Our application, [app name] is for [target audience]. It allows users to [what it does and why audience would use it]
+Our application, Pokemon Battlefield is for kids and adults who also like Pokemon. It allows users to simulate battles in the Pokemon style.
 
 ## API & React Router
 
-This application will use the [name of API] API. Below are the documentation and specific endpoints we intend to use and the front-end pages that will use them.
+This application will use the PokeApi API. Below are the documentation and specific endpoints we intend to use and the front-end pages that will use them.
 
 - Link to API documentation: [Link goes here]
 - API endpoint #1
@@ -21,7 +21,7 @@ This application will use the [name of API] API. Below are the documentation and
   - Description of endpoint
   - List of data values used by the endpoint
 
-[If your API requires an API key, say so here.]
+Our API does **not** require a key.
 
 **Example:**
 - https://api.artic.edu/api/v1/artworks
@@ -38,9 +38,9 @@ This application will use the [name of API] API. Below are the documentation and
 
 The application will feature the following frontend routes and core features:
 
-* On the `/example` page, users can...
-* On the `/example` page, users can...
-* On the `/example` page, users can...
+* On the `/` page, users can start the simulation.
+* On the `/selection` page, users can pick their Pokemon, moves and items, and rivals.
+* On the `/battle` page, users can simulate a fight between Pokemons like in the games.
 
 **Example:**
 - On the `/artworks` page, users can view a grid of all artwork
@@ -52,9 +52,8 @@ The application will feature the following frontend routes and core features:
 
 If time permits, the following stretch features will be implemented in order of priority:
 
-* Users will be able to...
-* Users will be able to...
-* Users will be able to...
+* Users will be able to use berries to equip and in combat.
+* Users will be able to have background locations.
 
 **Example:**
 * Users will be able to save and view favorited artworks using local storage
