@@ -72,30 +72,26 @@ If time permits, the following stretch features will be implemented in order of 
 
 To ensure that we can complete all core features of the application in 1 week, we will aim to complete tasks according to the following timeline:
 
-**Day 1**
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-
-**Day 2**
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-
-**Day 3** (MVP due by the end of the day)
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-
-**Day 4**
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-
-**Day 5**
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
-- [ ] Ticket description and due date
+**Day 1** Wednesday
+- [ ] Fetching Pokemons work properly.
+- [ ] Routing to `/selection` works properly.
+- [ ] Pokemons can be rendered and filtered on the selection screen.
+**Day 2** Thursday
+- [ ] Routing to `/battle` works properly.
+- [ ] Selection works properly.
+- [ ] `/battle` route is rendered properly.
+**Day 3** (MVP due by the end of the day) Friday
+- [ ] Actions can be taken in combat.
+- [ ] Pokémon stats are updated after every turn.
+- [ ] Pokémon battle can have a winner.
+**Day 4** Saturday
+- [ ] Testing both selection and battle screens.
+- [ ] Presentation is copied.
+- [ ] Both partners have access to the presentation.
+**Day 5** Monday
+- [ ] The demo video has been uploaded to the presentation.
+- [ ] All presentation content is done.
+- [ ] Add speaker notes.
 
 ## Wireframes of each page in your application
 
