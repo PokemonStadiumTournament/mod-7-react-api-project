@@ -1,26 +1,18 @@
-import { useContext } from "react";
-import PokemonContext from "../context/PokemonContext";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import MainComponent from "../components/MainComponent";
 
 const MainPage = () => {
-    const pokemon = useContext(PokemonContext);
-    console.log(pokemon);
-    const navigate = useNavigate();
+    const [component, setComponent] = useState();
 
-    const handleClick = () => {
-        navigate('/selection');
-    };
+    useEffect(() => {
+        const timedComponent = setTimeout(() => {
+            setComponent(<MainComponent/>);
+        }, 1000);
+        return () => clearTimeout(timedComponent);
+    }, [])
 
     return (
-        <>
-            <h1>Pokemon Battlefield</h1>
-            <img
-                alt='hi'
-                className='logoPokemon'
-                src={''}
-            />
-            <button onClick={handleClick}>Start Simulation</button>
-        </>
+        component
     );
 };
 
