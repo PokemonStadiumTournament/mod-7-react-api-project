@@ -1,10 +1,5 @@
-import { useContext } from "react";
-import PokemonContext from "../context/PokemonContext";
-import { useNavigate } from "react-router-dom";
-
-const MainPage = () => {
-    const pokemon = useContext(PokemonContext);
-    console.log(pokemon);
+const MainComponent = () => {
+    const pokemon = useContext(PokemonContext).allPokemon;
     const navigate = useNavigate();
 
     const handleClick = () => {
@@ -24,4 +19,4 @@ const MainPage = () => {
     );
 };
 
-export default MainPage;
+export default MainComponent;

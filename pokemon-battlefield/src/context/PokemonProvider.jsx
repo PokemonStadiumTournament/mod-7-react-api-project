@@ -4,18 +4,28 @@ import PokemonContext from "./PokemonContext";
 
 const PokemonProvider = ({ children }) => {
     const [allPokemon, setAllPokemon] = useState();
+    const [allItems, setAllItems] = useState();
     const [error, setError] = useState('');
+
+    const wantedPokemon = ['charizard', 'pikachu', 'gengar', 'lucario', 'greninja', 'garchomp', 'tyranitar', 'gardevoir', 'leafeon'];
+    const wantedItems = ['leftovers', 'sitrus-berry', 'air-balloon', 'expert-belt', 'rocky-helmet', 'bright-powder', 'focus-sash', 'ability-shield', 'custap-berry'];
     
     useEffect(() => {
-        const fetch = async() => {
+        const fetchPokemon = async() => {
             const [data, error] = await handleFetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
-            if (data) setAllPokemon(data.results);
+            if (data) setAllPokemon(data.results.filter(({ name }) => wantedPokemon.includes(name)));
             if (error) setError(error)
         }
-        fetch();
+        fetchPokemon();
+        const fetchItem = async() => {
+            const [data, error] = await handleFetch("https://pokeapi.co/api/v2/item?limit=100000&offset=0");
+            if (data) setAllItems(data.results.filter(({ name }) => wantedItems.includes(name)));
+            if (error) setError(error)
+        }
+        fetchItem();
     }, []);
 
-    let contextValues = {allPokemon, setAllPokemon};
+    let contextValues = {allPokemon, setAllPokemon, allItems, setAllItems};
     
     return (
         <PokemonContext.Provider value={contextValues}>
