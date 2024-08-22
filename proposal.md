@@ -48,8 +48,9 @@ Our API does **not** require a key.
 The application will feature the following frontend routes and core features:
 
 * On the `/` page, users can start the simulation.
-* On the `/selection` page, users can pick their Pokemon, moves and items, and rivals.
+* On the `/selection` page, users can pick both their pokemon and items if they wish.
 * On the `/battle` page, users can simulate a fight between Pokemons like in the games.
+* On the `/results` page, users can see which player won the battle.
 
 **Example:**
 - On the `/artworks` page, users can view a grid of all artwork
@@ -103,6 +104,17 @@ To ensure that we can complete all core features of the application in 1 week, w
 
 Below, you can find wireframes for our project. Each wireframe shows a different page of our application as well as the key components of the application. Details such as specific text values or images are intentionally not included:
 
-[Wireframe for page 1]
+#### Main Menu
+![Main Menu Screen Wireframe](https://i.imgur.com/nfFvg1B.png "Main Menu Screen Wireframe")
 
-[Wireframe for page 2]
+#### Pokemon Selection
+![Pokemon Selection Screen Wireframe](https://i.imgur.com/GXi7WB5.png "Pokemon Selection Screen Wireframe")
+
+#### Item Selection
+![Item Selection Screen Wireframe](https://i.imgur.com/AzvkMF4.png "Item Selection Screen Wireframe")
+
+#### Battle Screen
+![Battle Screen Wireframe](https://i.imgur.com/9ZEtESz.png "Battle Screen Wireframe")
+
+#### Results Screen
+![Results Screen Wireframe](https://i.imgur.com/wjoJbxw.png "Results Screen Wireframe")
