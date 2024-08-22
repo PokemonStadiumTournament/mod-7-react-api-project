@@ -10,7 +10,7 @@ Our application, Pokemon Battlefield is for kids and adults who also like Pokemo
 
 This application will use the PokeApi API. Below are the documentation and specific endpoints we intend to use and the front-end pages that will use them.
 
-- Link to API documentation: [Link goes here]
+- Link to API documentation: https://pokeapi.co/docs/v2 
 - API endpoint #1: https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0 (GET)
   - Description of endpoint: provides a list of up to 1302 Pokemon
   - List of data values used by the endpoint 
@@ -73,27 +73,28 @@ If time permits, the following stretch features will be implemented in order of 
 
 To ensure that we can complete all core features of the application in 1 week, we will aim to complete tasks according to the following timeline:
 
-**Day 1** Wednesday
+**Day 1**: Wed, 8/21 (Displaying Pokemon)
+
 - [ ] Fetching Pokemons work properly.
 - [ ] Routing to `/selection` works properly.
 - [ ] Pokemons can be rendered and filtered on the selection screen.
 
-**Day 2** Thursday
+**Day 2**: Thurs, 8/22 (Selecting Multiple Pokemon for Battle)
 - [ ] Routing to `/battle` works properly.
 - [ ] Selection works properly.
 - [ ] `/battle` route is rendered properly.
 
-**Day 3** (MVP due by the end of the day) Friday
+**Day 3**: Fri, 8/23 (Battle in Action, **MVP due by the end of the day**) 
 - [ ] Actions can be taken in combat.
 - [ ] Pokémon stats are updated after every turn.
 - [ ] Pokémon battle can have a winner.
 
-**Day 4** Saturday
+**Day 4** Sat, 8/24 (Testing and Demo)
 - [ ] Testing both selection and battle screens.
 - [ ] Presentation is copied.
 - [ ] Both partners have access to the presentation.
 
-**Day 5** Monday
+**Day 5** Mon, 8/26 (Demo and Presentation Slides)
 - [ ] The demo video has been uploaded to the presentation.
 - [ ] All presentation content is done.
 - [ ] Add speaker notes.
