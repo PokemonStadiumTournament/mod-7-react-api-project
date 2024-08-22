@@ -3,7 +3,7 @@ import handleFetch from '../utils/handleFetch';
 import PokemonContext from "./PokemonContext";
 
 const PokemonProvider = ({ children }) => {
-    const [allPokemon, setAllPokemon] = useState();
+    const [allPokemon, setAllPokemon] = useState([{"name": "pikachu", "url": "https://pokeapi.co/api/v2/pokemon/25/"}]);
     const [allItems, setAllItems] = useState();
     const [error, setError] = useState('');
 
