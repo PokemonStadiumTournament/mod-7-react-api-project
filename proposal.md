@@ -63,6 +63,7 @@ If time permits, the following stretch features will be implemented in order of 
 
 * Users will be able to use berries to equip and in combat.
 * Users will be able to have background locations.
+* Users will be able to see a random pokemon rendered on the main screen.
 
 **Example:**
 * Users will be able to save and view favorited artworks using local storage
