@@ -1,13 +1,13 @@
 const ItemSelection = ({ setCurrentOption }) => {
     
-    const clickHandler = () => {
+    const clickPageHandler = () => {
         setCurrentOption('pokemon');
     }
 
     return (
         <div>
-            <h1>Item Selection</h1>
-            <button onClick={clickHandler}>go to pokemon</button>
+            <h1>Item Selections</h1>
+            <button onClick={clickPageHandler}>Go to Select Pokemons</button>
         </div>
     );
 };
