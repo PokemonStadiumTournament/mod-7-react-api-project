@@ -50,19 +50,42 @@ const PokemonSelection = ({ setCurrentOption }) => {
             <h1>Pokemon Selections</h1>
             <form>
                 <div className="name-search-container">
-                    <h3>Enter A Pokemon Name Here:</h3>
-                    <input className="prompt" placeholder="Search by Name..." value={nameEntry} onChange={(e) => settingName(e.target.value)} />
+                    <h3>Choose From The Available Pokemons Here:</h3>
+                    {/* <input className="prompt" placeholder="Search by Name..." value={nameEntry} onChange={(e) => settingName(e.target.value)} /> */}
+                    {/* <div class="dropdown">
+                        <button class="dropbtn">Pokemons ▼</button>
+                        <div class="dropdown-pokemons">
+                            <ul>
+                                {allPokemon?.map((pokemon, index) => <PokemonTabStats key={index} name={pokemon.name} url={pokemon.url} />)}
+                            </ul>
+                        </div>
+                    </div> */}
+                     <div className="pokemon-list-container">
+                        <ul className="pokemon-list">
+                            {allPokemon?.map((pokemon, index) => <PokemonTabStats key={index} name={pokemon.name} url={pokemon.url} />)}
+                        </ul>
+                    </div>
                 </div>
                 <div className="type-or-gen-container">
                     {/* plan: these should be drop-downs, or radio buttons otherwise  */}
                     <h3>Choose A Pokemon Type Here:</h3>
                     <select name="types" id="types">
                         <option value="-">-</option>
+                        <option value="dark">dark</option>
+                        <option value="dragon">dragon</option>
+                        <option value="electric">electric</option>
+                        <option value="fairy">fairy</option>
+                        <option value="fighting">fighting</option>
                         <option value="fire">fire</option>
-                        <option value="water">water</option>
+                        <option value="flying">flying</option>
+                        <option value="ghost">ghost</option>
+                        <option value="grass">grass</option>
                         <option value="ground">ground</option>
+                        <option value="poison">poison</option>
                         <option value="psychic">psychic</option>
-                        {/* adding more later */}
+                        <option value="rock">rock</option>
+                        <option value="steel">steel</option>
+                        <option value="water">water</option>
                     </select>
                     {/* <input className="prompt" placeholder="-" value={typeEntry} onChange={(e) => settingType(e.target.value)} /> */}
                     <br />
@@ -70,7 +93,7 @@ const PokemonSelection = ({ setCurrentOption }) => {
                     <h3>Choose A Pokemon Generation Here:</h3>
                     <select name="gens" id="gens">
                         <option value="-">-</option>
-                        <option value="some-gen">some gen</option>
+                        <option value="some-gen">generation-i</option>
                         <option value="some-gen">some gen</option>
                         <option value="some-gen">some gen</option>
                         <option value="some-gen">some gen</option>
@@ -85,12 +108,6 @@ const PokemonSelection = ({ setCurrentOption }) => {
         </div>
         <br />
         <button onClick={clickPageHandler}>Go to Select Items</button>
-
-        <div className="ui six cards">
-            <ul>
-                {allPokemon?.map((pokemon, index) => <PokemonTabStats key={index} name={pokemon.name} url={pokemon.url} />)}
-            </ul>
-        </div>
         </>
     )
 }
