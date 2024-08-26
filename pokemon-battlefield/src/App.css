@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+
+.life-bar-container {
+  width: 100px;
+  height: 10px;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  margin: 5px auto;
+  position: relative;
+}
+
+.life-bar {
+  height: 100%;
+  background-color: #4caf50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 0.3s;
+}
