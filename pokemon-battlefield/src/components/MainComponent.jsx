@@ -9,6 +9,7 @@ const MainComponent = () => {
     const [error, setError] = useState();
     
     const pokemon = useContext(PokemonContext).allPokemon;
+    // console.log(pokemon);
     
     useEffect(() => {
         const fetchPokemon = async() => {
@@ -20,7 +21,7 @@ const MainComponent = () => {
     }, []);
 
     const handleClick = () => {
-        navigate('/selection');
+        navigate('/battle');
     };
 
     return (
