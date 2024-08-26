@@ -5,6 +5,7 @@ import SelectionPage from './pages/SelectionPage'
 import BattlePage from './pages/BattlePage'
 import ResultsPage from './pages/ResultsPage'
 import NotFoundPage from './pages/NotFoundPage'
+import CookiePage from './pages/TheCookiePage'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/selection" element={<SelectionPage />}></Route>
         <Route path="/battle" element={<BattlePage />}></Route>
         <Route path="/result" element={<ResultsPage />}></Route>
+        <Route path="/thecookie" element={<CookiePage />}></Route>
         <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>
     </div>
