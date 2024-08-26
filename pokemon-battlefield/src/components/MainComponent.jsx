@@ -21,7 +21,7 @@ const MainComponent = () => {
     }, []);
 
     const handleClick = () => {
-        navigate('/battle');
+        navigate('/selection');
     };
 
     return (
