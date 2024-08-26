@@ -9,6 +9,7 @@ import CookiePage from './pages/TheCookiePage'
 
 
 function App() {
+  <SelectionPage />
 
   return (
     <div className="App">
