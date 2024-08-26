@@ -1,6 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import handleFetch from "../utils/handleFetch";
 
-const PokemonTabStats = ({name, type, sprite}) => {
+const PokemonTabStats = ({name, url}) => {
+
+    // name, type sprite    
+    const [pokemon, setPokemon] = useState({});
+
+    useEffect(() => {
+        const fetchPokemon = async() => {
+            const [data, error] = await handleFetch(url);
+            console.log(data);
+            if (data) setPokemon(data);
+            if (error) setError(error)
+        }
+        fetchPokemon();
+    }, [url]);
     // const [statsVisibility, changeStatsVisibility] = useState(hidden);
 
     // const clickHandle = () => {
@@ -8,21 +22,21 @@ const PokemonTabStats = ({name, type, sprite}) => {
     //     else changeStatsVisibility(closed);
     // }
 
-    return (
-        <div className="ui card">
-            <div className="name" onClick ={clickHandle}>
-                <div className="header">{name}</div>
-            </div>
-            <div className="poke-stats">
-                <div className="type">
-                    <div className="header">{type}</div>
+        return (
+            <li className="ui card">
+                <div className="name">
+                    <div className="header">{name}</div>
                 </div>
-                <div className="image">
-                    <img alt="pokemon name" src={sprite} />
-                </div>
-             </div>
-        </div>
-    )
+                <div className="poke-stats">
+                    <div className="type">
+                        <div className="header">{pokemon.type}</div>
+                    </div>
+                    <div className="image">
+                        <img alt="pokemon name" src={pokemon?.sprites?.front_default} />
+                    </div>
+                 </div>
+            </li>
+        )
 }
 
 export default PokemonTabStats

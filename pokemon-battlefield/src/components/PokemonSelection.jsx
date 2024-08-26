@@ -4,16 +4,10 @@ import PokemonContext from "../context/PokemonContext";
 import PokemonTabStats from "./PokemonTabStats";
 
 const PokemonSelection = ({ setCurrentOption }) => {
-    const clickPageHandler = () => {
-        setCurrentOption('item');
-    }
+    const clickPageHandler = () => setCurrentOption('item');
 
-    const listAllPokemons = () => {
-        const allPokemon = useContext(PokemonContext).allPokemon;
-        console.log(allPokemon)
-        console.log('Hello');
-        return allPokemon;
-    }
+    const allPokemon = useContext(PokemonContext).allPokemon;
+    console.log(allPokemon);
 
     const [nameEntry, settingName] = useState('');
     const [typeEntry, settingType] = useState('');
@@ -26,26 +20,26 @@ const PokemonSelection = ({ setCurrentOption }) => {
     // need to consider on how it would tell the difference between searching name, type, and/or gen 
 
     // user enters a pokemon name
-    useEffect(() => {
-        const doFetch = async () => {
-            const [data, error] = await handleFetch(`https://pokeapi.co/api/v2/pokemon/${nameEntry}/`);
-            if (data) settingName(data.filter((pokemon) => pokemon.name.includes(nameEntry.toLowerCase())));
-            // console.log(data);
-            if (error) setError(error);
-        };
-        doFetch();
-    }, [nameEntry]);
+    // useEffect(() => {
+    //     const doFetch = async () => {
+    //         const [data, error] = await handleFetch(`https://pokeapi.co/api/v2/pokemon/${nameEntry}/`);
+    //         if (data) settingName(data.filter((pokemon) => pokemon.name.includes(nameEntry.toLowerCase())));
+    //         // console.log(data);
+    //         if (error) setError(error);
+    //     };
+    //     doFetch();
+    // }, [nameEntry]);
 
-    // user picks a pokemon type and/or gen type 
-    useEffect(() => {
-        const doFetch = async () => {
-            const [data, error] = await handleFetch(`https://pokeapi.co/api/v2/type/${typeEntry}/`);
-            if (data) settingType(data.filter((pokemon) => pokemon.results.name.includes(typeEntry.toLowerCase())));
-            // console.log(data);
-            if (error) setError(error);
-        };
-        doFetch();
-    }, [typeEntry]);
+    // // user picks a pokemon type and/or gen type 
+    // useEffect(() => {
+    //     const doFetch = async () => {
+    //         const [data, error] = await handleFetch(`https://pokeapi.co/api/v2/type/${typeEntry}/`);
+    //         if (data) settingType(data.filter((pokemon) => pokemon.results.name.includes(typeEntry.toLowerCase())));
+    //         // console.log(data);
+    //         if (error) setError(error);
+    //     };
+    //     doFetch();
+    // }, [typeEntry]);
 
     if (error) return <p>{error.message}</p>
 
@@ -86,14 +80,16 @@ const PokemonSelection = ({ setCurrentOption }) => {
                     {/* <input className="prompt" placeholder="-" value={genEntry} onChange={(e) => settingGen(e.target.value)} /> */}
                 </div>
                 <br />
-                <input type="submit" value="Submit" />
+                <button type="submit">Submit</button>
             </form>
         </div>
         <br />
         <button onClick={clickPageHandler}>Go to Select Items</button>
 
         <div className="ui six cards">
-            {listAllPokemons?.map(pokemon => <PokemonTabStats key={pokemon.id} name={pokemon.name} type={pokemon[0].type.name} sprite={pokemon.sprites.front_default} />)}
+            <ul>
+                {allPokemon?.map((pokemon, index) => <PokemonTabStats key={index} name={pokemon.name} url={pokemon.url} />)}
+            </ul>
         </div>
         </>
     )
