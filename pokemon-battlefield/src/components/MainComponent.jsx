@@ -13,7 +13,7 @@ const MainComponent = () => {
     
     useEffect(() => {
         const fetchPokemon = async() => {
-            const [data, error] = await handleFetch(pokemon[[Math.floor(Math.random() * (8 - 0 + 1) + 0)]].url);
+            const [data, error] = await handleFetch(pokemon[Math.floor(Math.random() * (8 - 0 + 1) + 0)].url);
             if (data) setLogoPokemon(data.sprites.front_default);
             if (error) setError(error)
         }

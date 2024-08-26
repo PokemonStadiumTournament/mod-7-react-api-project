@@ -41,6 +41,24 @@
   color: #888;
 }
 
+.life-bar-container {
+  width: 100px;
+  height: 10px;
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  margin: 5px auto;
+  position: relative;
+}
+
+.life-bar {
+  height: 100%;
+  background-color: #4caf50;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 0.3s;
+}
+
 .pokemon-list {
   list-style: none;
 }
@@ -83,3 +101,4 @@ div.name:hover .image {
 .dropdown:hover .dropdown-pokemons {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+
