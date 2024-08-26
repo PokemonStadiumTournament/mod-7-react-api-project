@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-const PokemonTabStats = ({name, type, pp, target, power}) => {
-    const [statsVisibility, changeStatsVisibility] = useState(hidden);
+const PokemonTabStats = ({name, type, sprite}) => {
+    // const [statsVisibility, changeStatsVisibility] = useState(hidden);
 
-    const clickHandle = () => {
-        if (statsVisibility === hidden) changeStatsVisibility(showing);
-        else changeStatsVisibility(closed);
-    }
+    // const clickHandle = () => {
+    //     if (statsVisibility === hidden) changeStatsVisibility(showing);
+    //     else changeStatsVisibility(closed);
+    // }
 
     return (
         <div className="ui card">
@@ -17,19 +17,9 @@ const PokemonTabStats = ({name, type, pp, target, power}) => {
                 <div className="type">
                     <div className="header">{type}</div>
                 </div>
-                <div className="pp">
-                    <div className="header">{pp}</div>
+                <div className="image">
+                    <img alt="pokemon name" src={sprite} />
                 </div>
-                <div className="target">
-                    <div className="header">{target}</div>
-                </div>
-                <div className="power">
-                    <div className="header">{power}</div>
-                </div>
-                {/* move the section below later? */}
-                {/* <div className="image">
-                    <img alt="pokemon name" src={img} />
-                </div> */}
              </div>
         </div>
     )

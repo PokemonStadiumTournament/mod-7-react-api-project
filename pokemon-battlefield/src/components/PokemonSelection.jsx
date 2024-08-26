@@ -1,17 +1,24 @@
 import { useState, useEffect, useContext } from "react";
 import handleFetch from '../utils/handleFetch';
 import PokemonContext from "../context/PokemonContext";
+import PokemonTabStats from "./PokemonTabStats";
 
 const PokemonSelection = ({ setCurrentOption }) => {
     const clickPageHandler = () => {
         setCurrentOption('item');
     }
 
+    const listAllPokemons = () => {
+        const allPokemon = useContext(PokemonContext).allPokemon;
+        console.log(allPokemon)
+        console.log('Hello');
+        return allPokemon;
+    }
+
     const [nameEntry, settingName] = useState('');
     const [typeEntry, settingType] = useState('');
     const [genEntry, settingGen] = useState('');
-    // console.log('Hello');
-    // console.log(nameEntry, typeEntry, genEntry);
+    console.log(nameEntry, typeEntry, genEntry);
     const [error, setError] = useState();
     // use the context given the state of PokemonContext, but only use setAllPokemon funct 
     // const setPokemon = useContext(PokemonContext).setAllPokemon; 
@@ -29,7 +36,7 @@ const PokemonSelection = ({ setCurrentOption }) => {
         doFetch();
     }, [nameEntry]);
 
-    // user picks a pokemon type
+    // user picks a pokemon type and/or gen type 
     useEffect(() => {
         const doFetch = async () => {
             const [data, error] = await handleFetch(`https://pokeapi.co/api/v2/type/${typeEntry}/`);
@@ -40,24 +47,11 @@ const PokemonSelection = ({ setCurrentOption }) => {
         doFetch();
     }, [typeEntry]);
 
-    // user picks a pokemon gen
-    useEffect(() => {
-        const doFetch = async () => {
-            const [data, error] = await handleFetch(`https://pokeapi.co/api/v2/pokemon/${genEntry}/`);
-            // need to adjust the formatting, ex: generation i !== generation-i
-            if (data) settingGen(data.filter((pokemon) => pokemon.sprite.versions.includes(genEntry.toLowerCase())));
-            // console.log(data);
-            if (error) setError(error);
-        };
-        doFetch();
-    }, [genEntry]);
-
     if (error) return <p>{error.message}</p>
 
     return (
-        // delete the <br> tags later, when doing CSS 
+        // delete the <br> tags later, when doing CSS!!  
         <>
-        <p>Hello!</p>
         <div className="ui search">
             <h1>Pokemon Selections</h1>
             <form>
@@ -80,13 +74,27 @@ const PokemonSelection = ({ setCurrentOption }) => {
                     <br />
 
                     <h3>Choose A Pokemon Generation Here:</h3>
-                    {/* do the same like type */}
-                    <input className="prompt" placeholder="-" value={genEntry} onChange={(e) => settingGen(e.target.value)} />
+                    <select name="gens" id="gens">
+                        <option value="-">-</option>
+                        <option value="some-gen">some gen</option>
+                        <option value="some-gen">some gen</option>
+                        <option value="some-gen">some gen</option>
+                        <option value="some-gen">some gen</option>
+                        <option value="some-gen">some gen</option>
+                        {/* adding more later */}
+                    </select>
+                    {/* <input className="prompt" placeholder="-" value={genEntry} onChange={(e) => settingGen(e.target.value)} /> */}
                 </div>
+                <br />
+                <input type="submit" value="Submit" />
             </form>
         </div>
         <br />
         <button onClick={clickPageHandler}>Go to Select Items</button>
+
+        <div className="ui six cards">
+            {listAllPokemons?.map(pokemon => <PokemonTabStats key={pokemon.id} name={pokemon.name} type={pokemon[0].type.name} sprite={pokemon.sprites.front_default} />)}
+        </div>
         </>
     )
 }
