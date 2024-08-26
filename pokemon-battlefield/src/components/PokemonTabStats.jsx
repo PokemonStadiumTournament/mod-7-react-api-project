@@ -23,9 +23,9 @@ const PokemonTabStats = ({name, url}) => {
     // }
 
         return (
-            <li className="ui card">
+            <li className="poke-tab">
                 <div className="name">
-                    <div className="header">{name}</div>
+                    <div className="poke-tab-name">{name}</div>
                 </div>
                 <div className="poke-stats">
                     <div className="type">
