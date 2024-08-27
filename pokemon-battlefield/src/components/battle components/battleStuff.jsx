@@ -1,13 +1,10 @@
-import { useState, useContext, useEffect } from "react";
-import PokemonContext from "../../context/PokemonContext";
+import { useState, useEffect } from "react";
 import handleFetch from "../../utils/handleFetch";
 import BattleButtons from "./buttons";
 import HealthBar from "./healthBar";
-import { useNavigate } from "react-router-dom";
 import BattleLog from "./battleMessage";
 
 const BattleData = ({ pokemon1url, pokemon2url }) => {
-    const navigate = useNavigate();
     const [p1, setP1] = useState();
     const [opp, setOpp] = useState();
 
@@ -15,13 +12,13 @@ const BattleData = ({ pokemon1url, pokemon2url }) => {
         const fetchPokemon1 = async() => {
             const [data, error] = await handleFetch(pokemon1url);
             if (data) setP1(data);
-            if (error) setError(error)
+            if (error) console.error(error);
         };
         fetchPokemon1();
         const fetchPokemon2 = async() => {
             const [data, error] = await handleFetch(pokemon2url);
             if (data) setOpp(data);
-            if (error) setError(error)
+            if (error) console.error(error);
         };
         fetchPokemon2();
     }, []);
@@ -32,14 +29,6 @@ const BattleData = ({ pokemon1url, pokemon2url }) => {
     const p1moves = [];
     for (let i = 0; i < 4; i++) {
         p1moves.push(p1?.moves[Math.floor(Math.random() * ((p1?.moves.length - 1) - 0 + 1) + 0)]);
-    };
-
-    if (health1 <= 0 || health2 <= 0) {
-        const setWinner = useContext(PokemonContext).setWinner;
-        const setWinnerPokemon = useContext(PokemonContext).setWinnerPokemon;
-        setWinner(health1 <= 0 ? 'The CPU' : 'The Player');
-        setWinnerPokemon(health1 <= 0 ? opp : p1);
-        navigate('/result');
     };
 
     return (
