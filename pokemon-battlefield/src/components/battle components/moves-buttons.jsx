@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import handleFetch from "../../utils/handleFetch";
+import PokemonContext from "../../context/PokemonContext";
 
 const MovesButtons = ({ setMenu, moveArr, oppData, health, setHealth, oppHealth, setOppHealth }) => {
     const [move1, setMove1] = useState();
@@ -43,12 +44,23 @@ const MovesButtons = ({ setMenu, moveArr, oppData, health, setHealth, oppHealth,
 
     const moves = [move1, move2, move3, move4];
 
+    const setLog = useContext(PokemonContext).setLog;
     const handleClick = (e) => {
         const name = e.target.textContent;
         const move = moves.find((e) => e.name === name);
-        setOppHealth(oppHealth - move.power);
-        setHealth(health - oppMove.power);
-        setMenu('action');
+        setMenu('none');
+        setTimeout(() => {
+            setLog(`Player uses ${move.name}`);
+            setOppHealth(oppHealth - (move.power / 2));
+        }, 500)
+        setTimeout(() => {
+            setLog(`Computer uses ${oppMove.name}`);
+            setHealth(health - (oppMove.power / 2));
+        }, 1000)
+        setTimeout(() => {
+            setLog('Waiting for commands...');
+            setMenu('action');
+        }, 1500)
     };
 
     return (

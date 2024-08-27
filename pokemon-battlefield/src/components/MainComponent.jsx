@@ -23,16 +23,24 @@ const MainComponent = () => {
     };
 
     return (
-        <>
-            <h1 className="title1">Pokemon</h1>
-            <h1 className="title2">Battlefield</h1>
-            <img
-                alt='hi'
-                className='pokemonLogoImage'
-                src={logoPokemon}
-            />
-            <button onClick={handleClick} className="startButton">Start Simulation</button>
-        </>
+        <div className='mainPageContent'>
+            <div className='mainColumn'>
+                <div className='titleDiv'>
+                    <h1 className="title1">Pokemon</h1>
+                    <h1 className="title2">Battlefield</h1>
+                </div>
+                <div className='buttonDiv'>
+                    <button onClick={handleClick} className="startButton">Start Simulation</button>
+                </div>
+            </div>
+            <div className='logoDiv'>
+                <img
+                    alt='hi'
+                    className='pokemonLogoImage'
+                    src={logoPokemon}
+                />
+            </div>
+        </div>
     );
 };
 

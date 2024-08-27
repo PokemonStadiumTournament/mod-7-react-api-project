@@ -25,12 +25,14 @@ const PokemonProvider = ({ children }) => {
         fetchItem();
     }, []);
 
-    const [winnerPokemon, setWinner] = useState('none');
+    const [winnerPokemon, setWinnerPokemon] = useState('none');
+    const [winner, setWinner] = useState('nobody');
     const [playerPokemon, setPlayer] = useState();
     const [p1moves, setMoves1] = useState([]);
     const [p2moves, setMoves2] = useState([]);
+    const [logMessage, setLog] = useState('Waiting for commands...');
 
-    let contextValues = {allPokemon, setAllPokemon, allItems, setAllItems, winnerPokemon, setWinner, p1moves, setMoves1, p2moves, setMoves2, playerPokemon, setPlayer};
+    let contextValues = {allPokemon, setAllPokemon, allItems, setAllItems, winnerPokemon, setWinnerPokemon, p1moves, setMoves1, p2moves, setMoves2, playerPokemon, setPlayer, winner,setWinner, logMessage, setLog};
     
     return (
         <PokemonContext.Provider value={contextValues}>
