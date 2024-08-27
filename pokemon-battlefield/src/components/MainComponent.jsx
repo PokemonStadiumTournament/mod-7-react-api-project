@@ -9,7 +9,6 @@ const MainComponent = () => {
     const [error, setError] = useState();
     
     const pokemon = useContext(PokemonContext).allPokemon;
-    // console.log(pokemon);
     
     useEffect(() => {
         const fetchPokemon = async() => {

@@ -9,7 +9,7 @@ const PokemonTabStats = ({name, url}) => {
     useEffect(() => {
         const fetchPokemon = async() => {
             const [data, error] = await handleFetch(url);
-            console.log(data.types);
+            // console.log(data.types);
             if (data) setPokemon(data);
             if (error) setError(error)
         }
