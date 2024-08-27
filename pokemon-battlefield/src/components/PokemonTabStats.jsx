@@ -15,28 +15,45 @@ const PokemonTabStats = ({name, url}) => {
         }
         fetchPokemon();
     }, [url]);
-    // const [statsVisibility, changeStatsVisibility] = useState(hidden);
 
-    // const clickHandle = () => {
-    //     if (statsVisibility === hidden) changeStatsVisibility(showing);
-    //     else changeStatsVisibility(closed);
+// const [visibility, changeVisibility] = useState(hidden);
+
+    // const hovering = () => {
+    //     if (visibility === hidden) changeVisibility(showing);
+    //     else changeVisibility(closed);
     // }
 
-        return (
-            <li className="poke-tab">
-                <div className="name">
-                    <div className="poke-tab-name">{name}</div>
+    const clickingPokeTab = (e) => {
+        e.preventDefault();
+        var elem = document.querySelector('.poke-stats');
+        
+        if (elem.style.display === "none") {
+            elem.style.display = "block";
+        } else {
+            elem.style.display = "none";
+        }
+    }
+
+    return (
+        <li className="ui card">
+            <div className="name">
+                {/* <button className="poke-tab-name">{name}</button> */}
+                <button className="poke-tab-name" onClick={clickingPokeTab}>{name}</button>
+                {/* <button className="poke-tab-name" onClick={clickingPokeTab}>{name + '  ▼'}</button> */}
+                {/* <div className="poke-tab-name">{name}</div> */}
+            </div>
+            <div className="poke-stats">
+                <div className="image">
+                    <img alt="pokemon name" src={pokemon?.sprites?.front_default}/>
                 </div>
-                <div className="poke-stats">
-                    <div className="type">
-                        <div className="header">{pokemon.type}</div>
-                    </div>
-                    <div className="image">
-                        <img alt="pokemon name" src={pokemon?.sprites?.front_default} />
-                    </div>
-                 </div>
-            </li>
-        )
+                <div className="type">
+                    <div className="header">{pokemon.type}</div>
+                    <p>Placeholder - the type should be here</p>
+                </div>
+                <button className="select-pokemon">Select</button>
+            </div>
+        </li>
+    )
 }
 
 export default PokemonTabStats
