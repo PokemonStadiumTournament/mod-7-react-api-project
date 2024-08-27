@@ -7,8 +7,6 @@ const BattlePage = () => {
     const p1 = useContext(PokemonContext).playerPokemon;
     const botUrl = useContext(PokemonContext).allPokemon[Math.floor(Math.random() * (8 - 0 + 1) + 0)].url;
     const setOpp = useContext(PokemonContext).setOpp;
-    const setPlayerHealth = useContext(PokemonContext).setPlayerHealth;
-    const setOppHealth = useContext(PokemonContext).setOppHealth;
     const setMoves = useContext(PokemonContext).setMoves1;
     const p1moves = [];
 
@@ -18,8 +16,6 @@ const BattlePage = () => {
     
     useEffect(() => {
         const moveArr = [];
-        setPlayerHealth(100);
-        setOppHealth(100);
         const fetchMove1 = async() => {
             const [data, error] = await handleFetch(p1moves[0].move.url);
             if (data) moveArr.push(data);

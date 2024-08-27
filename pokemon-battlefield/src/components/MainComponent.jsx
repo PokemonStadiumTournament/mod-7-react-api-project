@@ -7,8 +7,14 @@ const MainComponent = () => {
     const navigate = useNavigate();
     const [logoPokemon, setLogoPokemon] = useState();
     const pokemon = useContext(PokemonContext).allPokemon;
+    const setPlayerHealth = useContext(PokemonContext).setPlayerHealth;
+    const setOppHealth = useContext(PokemonContext).setOppHealth;
+    const setLog = useContext(PokemonContext).setLog;
     
     useEffect(() => {
+        setPlayerHealth(100);
+        setOppHealth(100);
+        setLog('Waiting for commands...');
         const fetchPokemon = async() => {
             const [data, error] = await handleFetch(pokemon[Math.floor(Math.random() * (8 - 0 + 1) + 0)].url);
             if (data) setLogoPokemon(data.sprites.front_default);
