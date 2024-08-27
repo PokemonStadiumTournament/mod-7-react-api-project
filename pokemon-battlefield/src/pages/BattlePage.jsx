@@ -6,7 +6,7 @@ import Loading from "../components/loading";
 
 const BattlePage = () => {
     const pokemon1 = useContext(PokemonContext).allPokemon[0];
-    const pokemon2 = useContext(PokemonContext).allPokemon[1];
+    const pokemon2 = useContext(PokemonContext).allPokemon[Math.floor(Math.random() * (8 - 0 + 1) + 0)];
 
     return (
         <>
