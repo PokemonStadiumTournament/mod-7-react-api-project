@@ -1,35 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import handleFetch from "../../utils/handleFetch";
 import BattleButtons from "./buttons";
 import HealthBar from "./healthBar";
 import BattleLog from "./battleMessage";
+import PokemonContext from "../../context/PokemonContext";
 
-const BattleData = ({ pokemon1url, pokemon2url }) => {
-    const [p1, setP1] = useState();
-    const [opp, setOpp] = useState();
+const BattleData = () => {
+    const p1 = useContext(PokemonContext).playerPokemon;
+    const opp = useContext(PokemonContext).oppPokemon;
 
-    useEffect(() => {
-        const fetchPokemon1 = async() => {
-            const [data, error] = await handleFetch(pokemon1url);
-            if (data) setP1(data);
-            if (error) console.error(error);
-        };
-        fetchPokemon1();
-        const fetchPokemon2 = async() => {
-            const [data, error] = await handleFetch(pokemon2url);
-            if (data) setOpp(data);
-            if (error) console.error(error);
-        };
-        fetchPokemon2();
-    }, []);
-
-    const [health1, setHealth1] = useState(100);
-    const [health2, setHealth2] = useState(100);
-
-    const p1moves = [];
-    for (let i = 0; i < 4; i++) {
-        p1moves.push(p1?.moves[Math.floor(Math.random() * ((p1?.moves.length - 1) - 0 + 1) + 0)]);
-    };
+    const health1 = useContext(PokemonContext).playerHealth;
+    const health2 = useContext(PokemonContext).oppHealth;
 
     return (
         <div>
@@ -52,7 +33,7 @@ const BattleData = ({ pokemon1url, pokemon2url }) => {
                 </div>
             </div>
             <BattleLog />
-            <BattleButtons moveArr={p1moves} oppData={opp} health1={health1} health2={health2} setHealth1={setHealth1} setHealth2={setHealth2}/>
+            <BattleButtons />
         </div>
     );
 }
