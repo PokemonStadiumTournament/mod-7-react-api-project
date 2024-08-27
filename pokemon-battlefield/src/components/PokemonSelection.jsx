@@ -23,7 +23,9 @@ const PokemonSelection = ({ setCurrentOption }) => {
     // useEffect(() => {
     //     const doFetch = async () => {
     //         const [data, error] = await handleFetch(`https://pokeapi.co/api/v2/pokemon/${nameEntry}/`);
-    //         if (data) settingName(data.filter((pokemon) => pokemon.name.includes(nameEntry.toLowerCase())));
+    //         let filtering = data.filter((pokemon) => pokemon.name.includes(nameEntry.toLowerCase()));
+    //         console.log(filtering);
+    //         if (data) settingName(filtering);
     //         // console.log(data);
     //         if (error) setError(error);
     //     };
