@@ -1,4 +1,4 @@
-const healthBar = (hp, maxHp) => {
+const HealthBar = ({ hp, maxHp }) => {
     const widthPercentage = (hp/maxHp) * 100
 
     return(
@@ -10,4 +10,4 @@ const healthBar = (hp, maxHp) => {
     )
 }
 
-export default healthBar;
+export default HealthBar;

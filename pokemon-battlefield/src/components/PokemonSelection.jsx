@@ -2,17 +2,19 @@ import { useState, useEffect, useContext } from "react";
 import handleFetch from '../utils/handleFetch';
 import PokemonContext from "../context/PokemonContext";
 import PokemonTabStats from "./PokemonTabStats";
+import { useNavigate } from "react-router-dom";
 
 const PokemonSelection = ({ setCurrentOption }) => {
+    const navigate = useNavigate();
     const clickPageHandler = () => setCurrentOption('item');
 
     const allPokemon = useContext(PokemonContext).allPokemon;
-    console.log(allPokemon);
+    // console.log(allPokemon);
 
     const [nameEntry, settingName] = useState('');
     const [typeEntry, settingType] = useState('');
     const [genEntry, settingGen] = useState('');
-    console.log(nameEntry, typeEntry, genEntry);
+    // console.log(nameEntry, typeEntry, genEntry);
     const [error, setError] = useState();
     // use the context given the state of PokemonContext, but only use setAllPokemon funct 
     // const setPokemon = useContext(PokemonContext).setAllPokemon; 
@@ -45,9 +47,14 @@ const PokemonSelection = ({ setCurrentOption }) => {
 
     if (error) return <p>{error.message}</p>
 
+    const handleClick = () => {
+        navigate('/battle');
+    };
+
     return (
         // delete the <br> tags later, when doing CSS!!  
         <>
+        <button onClick={handleClick}>to battle</button>;
         <div className="ui search">
             <h1>Pokemon Selections</h1>
             <form>
