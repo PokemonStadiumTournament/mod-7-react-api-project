@@ -47,10 +47,7 @@ const MovesButtons = ({ setMenu, moveArr, oppData, health, setHealth, oppHealth,
         const name = e.target.textContent;
         const move = moves.find((e) => e.name === name);
         setOppHealth(oppHealth - move.power);
-        console.log(oppMove.name, oppMove.power);
-        console.log(health);
         setHealth(health - oppMove.power);
-        console.log(health);
         setMenu('action');
     };
 

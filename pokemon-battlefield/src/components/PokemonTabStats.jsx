@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import handleFetch from "../utils/handleFetch";
+import { useNavigate } from "react-router-dom";
+import PokemonContext from "../context/PokemonContext";
 
 const PokemonTabStats = ({name, url}) => {
-
+    const navigate = useNavigate();
     // name, type sprite    
     const [pokemon, setPokemon] = useState({});
 
@@ -16,22 +18,35 @@ const PokemonTabStats = ({name, url}) => {
         fetchPokemon();
     }, [url]);
 
-// const [visibility, changeVisibility] = useState(hidden);
+    console.log(pokemon.types);
 
-    // const hovering = () => {
-    //     if (visibility === hidden) changeVisibility(showing);
-    //     else changeVisibility(closed);
-    // }
+    const [component, setComponent] = useState();
 
     const clickingPokeTab = (e) => {
         e.preventDefault();
-        var elem = document.querySelector('.poke-stats');
         
-        if (elem.style.display === "none") {
-            elem.style.display = "block";
+        if (!component) {
+            setComponent(
+            <div className="poke-stats">
+                <figure className="image">
+                    <img alt="pokemon name" src={pokemon?.sprites?.front_default}/>
+                </figure>
+                <div className="type">
+                    <h2 className="header">Types</h2>
+                    {pokemon?.types.map((type, index) => <p key={index}>{type.type.name}</p>)}
+                </div>
+                <button className="select-pokemon" onClick={selectPokemon}>Select</button>
+            </div>
+            );
         } else {
-            elem.style.display = "none";
+            setComponent();
         }
+    }
+
+    const setPlayer = useContext(PokemonContext).setPlayer;
+    const selectPokemon = () => {
+        setPlayer(url);
+        navigate('/battle');
     }
 
     return (
@@ -42,16 +57,7 @@ const PokemonTabStats = ({name, url}) => {
                 {/* <button className="poke-tab-name" onClick={clickingPokeTab}>{name + '  ▼'}</button> */}
                 {/* <div className="poke-tab-name">{name}</div> */}
             </div>
-            <div className="poke-stats">
-                <div className="image">
-                    <img alt="pokemon name" src={pokemon?.sprites?.front_default}/>
-                </div>
-                <div className="type">
-                    <div className="header">{pokemon.type}</div>
-                    <p>Placeholder - the type should be here</p>
-                </div>
-                <button className="select-pokemon">Select</button>
-            </div>
+            {component}
         </li>
     )
 }
