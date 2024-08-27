@@ -37,6 +37,7 @@ const PokemonTabStats = ({name, url}) => {
     return (
         <li className="ui card">
             <div className="name">
+                {/* <button className="poke-tab-name">{name}</button> */}
                 <button className="poke-tab-name" onClick={clickingPokeTab}>{name}</button>
                 {/* <button className="poke-tab-name" onClick={clickingPokeTab}>{name + '  ▼'}</button> */}
                 {/* <div className="poke-tab-name">{name}</div> */}
@@ -49,6 +50,7 @@ const PokemonTabStats = ({name, url}) => {
                     <div className="header">{pokemon.type}</div>
                     <p>Placeholder - the type should be here</p>
                 </div>
+                <button className="select-pokemon">Select</button>
             </div>
         </li>
     )
