@@ -1,8 +1,6 @@
-import { useState, useContext, useEffect } from "react";
+import { useContext } from "react";
 import PokemonContext from "../context/PokemonContext";
-import handleFetch from "../utils/handleFetch";
-import BattleData from "../utils/battleStuff";
-import Loading from "../components/loading";
+import BattleData from "../components/battle components/battleStuff";
 
 const BattlePage = () => {
     const pokemon1 = useContext(PokemonContext).playerPokemon;

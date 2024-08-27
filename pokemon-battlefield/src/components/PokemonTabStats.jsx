@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 import PokemonContext from "../context/PokemonContext";
 
 const PokemonTabStats = ({name, url}) => {
-    const navigate = useNavigate();
-    // name, type sprite    
-    const [pokemon, setPokemon] = useState({});
+    const navigate = useNavigate(); 
 
+    const [pokemon, setPokemon] = useState({});
     useEffect(() => {
         const fetchPokemon = async() => {
             const [data, error] = await handleFetch(url);
@@ -18,13 +17,9 @@ const PokemonTabStats = ({name, url}) => {
         fetchPokemon();
     }, [url]);
 
-    console.log(pokemon.types);
-
     const [component, setComponent] = useState();
-
     const clickingPokeTab = (e) => {
         e.preventDefault();
-        
         if (!component) {
             setComponent(
             <div className="poke-stats">
@@ -52,10 +47,7 @@ const PokemonTabStats = ({name, url}) => {
     return (
         <li className="ui card">
             <div className="name">
-                {/* <button className="poke-tab-name">{name}</button> */}
                 <button className="poke-tab-name" onClick={clickingPokeTab}>{name}</button>
-                {/* <button className="poke-tab-name" onClick={clickingPokeTab}>{name + '  ▼'}</button> */}
-                {/* <div className="poke-tab-name">{name}</div> */}
             </div>
             {component}
         </li>

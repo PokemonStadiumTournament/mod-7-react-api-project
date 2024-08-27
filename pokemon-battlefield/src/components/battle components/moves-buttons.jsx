@@ -58,7 +58,7 @@ const MovesButtons = ({ setMenu, moveArr, oppData, health, setHealth, oppHealth,
             <button onClick={handleClick}>{move3?.name}</button>
             <button onClick={handleClick}>{move4?.name}</button>
         </div>
-    )
+    );
 }
 
 export default MovesButtons;
