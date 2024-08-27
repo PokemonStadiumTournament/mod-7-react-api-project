@@ -6,11 +6,10 @@ import PokemonContext from "../context/PokemonContext";
 const PokemonTabStats = ({name, url}) => {
     const navigate = useNavigate(); 
 
-    const [pokemon, setPokemon] = useState({});
+    const [pokemon, setPokemon] = useState();
     useEffect(() => {
         const fetchPokemon = async() => {
             const [data, error] = await handleFetch(url);
-            // console.log(data.types);
             if (data) setPokemon(data);
             if (error) setError(error)
         }
@@ -40,7 +39,7 @@ const PokemonTabStats = ({name, url}) => {
 
     const setPlayer = useContext(PokemonContext).setPlayer;
     const selectPokemon = () => {
-        setPlayer(url);
+        setPlayer(pokemon);
         navigate('/battle');
     }
 
