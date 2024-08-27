@@ -4,6 +4,7 @@ import handleFetch from "../../utils/handleFetch";
 import BattleButtons from "./buttons";
 import HealthBar from "./healthBar";
 import { useNavigate } from "react-router-dom";
+import BattleLog from "./battleMessage";
 
 const BattleData = ({ pokemon1url, pokemon2url }) => {
     const navigate = useNavigate();
@@ -35,7 +36,9 @@ const BattleData = ({ pokemon1url, pokemon2url }) => {
 
     if (health1 <= 0 || health2 <= 0) {
         const setWinner = useContext(PokemonContext).setWinner;
-        setWinner(health1 <= 0 ? opp : p1);
+        const setWinnerPokemon = useContext(PokemonContext).setWinnerPokemon;
+        setWinner(health1 <= 0 ? 'The CPU' : 'The Player');
+        setWinnerPokemon(health1 <= 0 ? opp : p1);
         navigate('/result');
     };
 
@@ -59,6 +62,7 @@ const BattleData = ({ pokemon1url, pokemon2url }) => {
                     <HealthBar hp={health2} maxHp={100}/>
                 </div>
             </div>
+            <BattleLog />
             <BattleButtons moveArr={p1moves} oppData={opp} health1={health1} health2={health2} setHealth1={setHealth1} setHealth2={setHealth2}/>
         </div>
     );
