@@ -1,12 +1,9 @@
-import { useState, useEffect, useContext } from "react";
-import handleFetch from '../utils/handleFetch';
+import { useContext } from "react";
 import PokemonContext from "../context/PokemonContext";
 import PokemonTabStats from "./PokemonTabStats";
-import { useNavigate } from "react-router-dom";
 
 const PokemonSelection = () => {
     const allPokemon = useContext(PokemonContext).allPokemon;
-
     return (
         <>
         <h1>Pokemon Selections</h1>

@@ -6,7 +6,6 @@ import handleFetch from '../utils/handleFetch';
 const MainComponent = () => {
     const navigate = useNavigate();
     const [logoPokemon, setLogoPokemon] = useState();
-    const [error, setError] = useState();
     
     const pokemon = useContext(PokemonContext).allPokemon;
     

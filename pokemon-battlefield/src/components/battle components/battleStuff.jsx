@@ -1,11 +1,11 @@
 import { useState, useContext, useEffect } from "react";
-import PokemonContext from "../context/PokemonContext";
-import handleFetch from "../utils/handleFetch";
-import BattleButtons from "../components/battle components/buttons";
-import HealthBar from "../components/battle components/healthBar";
+import PokemonContext from "../../context/PokemonContext";
+import handleFetch from "../../utils/handleFetch";
+import BattleButtons from "./buttons";
+import HealthBar from "./healthBar";
 import { useNavigate } from "react-router-dom";
 
-const BattleData = ({ pokemon1url, pokemon2url, player1Item = {}, player2Item = {} }) => {
+const BattleData = ({ pokemon1url, pokemon2url }) => {
     const navigate = useNavigate();
     const [p1, setP1] = useState();
     const [opp, setOpp] = useState();
@@ -25,30 +25,32 @@ const BattleData = ({ pokemon1url, pokemon2url, player1Item = {}, player2Item = 
         fetchPokemon2();
     }, []);
 
-    const [health1, setHealth1] = useState(100)
-    const [health2, setHealth2] = useState(100)
+    const [health1, setHealth1] = useState(100);
+    const [health2, setHealth2] = useState(100);
 
     const p1moves = [];
-
     for (let i = 0; i < 4; i++) {
         p1moves.push(p1?.moves[Math.floor(Math.random() * ((p1?.moves.length - 1) - 0 + 1) + 0)]);
-    }
+    };
 
     if (health1 <= 0 || health2 <= 0) {
         const setWinner = useContext(PokemonContext).setWinner;
         setWinner(health1 <= 0 ? opp : p1);
         navigate('/result');
-    }
+    };
 
-        return (
-            <div>
-                <div className="pokemon-sprites">
+    return (
+        <div>
+            <div className="pokemon-sprites">
+                <div className='playerPokemonRender'>
                     <img
                         alt='player 1 Pokemon'
                         className='p1pokemon'
                         src={p1?.sprites.back_default}
                     />
                     <HealthBar hp={health1} maxHp={100} />
+                </div>
+                <div>
                     <img
                         alt='player 2 Pokemon'
                         className='p2pokemon'
@@ -56,10 +58,10 @@ const BattleData = ({ pokemon1url, pokemon2url, player1Item = {}, player2Item = 
                     />
                     <HealthBar hp={health2} maxHp={100}/>
                 </div>
-                <BattleButtons moveArr={p1moves} oppData={opp} health1={health1} health2={health2} setHealth1={setHealth1} setHealth2={setHealth2}/>
             </div>
-        )
-
+            <BattleButtons moveArr={p1moves} oppData={opp} health1={health1} health2={health2} setHealth1={setHealth1} setHealth2={setHealth2}/>
+        </div>
+    );
 }
 
 export default BattleData;
