@@ -7,10 +7,7 @@ const BattlePage = () => {
     const pokemon2 = useContext(PokemonContext).allPokemon[Math.floor(Math.random() * (8 - 0 + 1) + 0)];
 
     return (
-        <>
-        <h1>battle</h1>
-        <BattleData pokemon1url={pokemon1} pokemon2url={pokemon2.url}/>
-        </>
+        <BattleData pokemon1url={pokemon1} pokemon2url={pokemon2.url} className='battleButtons'/>
     );
 };
 

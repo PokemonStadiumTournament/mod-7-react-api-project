@@ -11,8 +11,8 @@ const ActionButtons = ({ setter }) => {
     return (
         <div className="action-buttons">
             <button onClick={handleClick} className='fightButton'>Fight</button>
-            <button className='bagButton'>Bag</button>
-            <button className='swapButton'>Swap</button>
+            <button className='bagButton'>Bag (WIP)</button>
+            <button className='swapButton'>Swap (WIP)</button>
             <button onClick={handleClick2} className='backButton'>Back to Main</button>
         </div>
     )
